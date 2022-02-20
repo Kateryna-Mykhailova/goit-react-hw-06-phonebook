@@ -40,7 +40,7 @@ export default function App() {
   const visibleContacts = getVisibleContacts();
 
   useEffect(() => {
-    console.log('oполучаю с лс');
+    console.log('получаю с лс');
     const localContacts = localStorage.getItem('contacts');
     console.log(localContacts);
     const parseLocalContacts = JSON.parse(localContacts);
@@ -59,9 +59,9 @@ export default function App() {
     <div className="App">
       <h1>Phonebook</h1>
       <Form addNewContact={addNewContact} />
-      <h2>Contacts</h2>
+      {/* <h2>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
-      <Phonebook contacts={visibleContacts} onDeleteContact={deleteContact} />
+      <Phonebook contacts={visibleContacts} onDeleteContact={deleteContact} /> */}
     </div>
   );
 }

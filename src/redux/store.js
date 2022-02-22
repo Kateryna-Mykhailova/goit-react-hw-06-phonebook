@@ -2,10 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import { createAction, createReducer } from '@reduxjs/toolkit';
 import { createStore } from 'redux';
 
-import reducer from '../redux/reducers';
+import contactReducer from '../redux/reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { configure } from '@testing-library/react';
 
-const store = createStore(reducer, composeWithDevTools());
+// const store = createStore(reducer, composeWithDevTools());
+
+const store = configureStore({
+  reducer: {
+    contacts: contactReducer,
+  },
+});
+
 export default store;
 // const initialState = [
 //     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },

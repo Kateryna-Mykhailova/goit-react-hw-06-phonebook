@@ -1,17 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { createAction, createReducer } from '@reduxjs/toolkit';
-import { createStore } from 'redux';
-
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+// import { createAction, createReducer } from '@reduxjs/toolkit';
+// import { createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
 import contactReducer from '../redux/reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { configure } from '@testing-library/react';
-
+import logger from 'redux-logger';
 // const store = createStore(reducer, composeWithDevTools());
 
+const middleware = [...getDefaultMiddleware(), logger];
 const store = configureStore({
   reducer: {
     contacts: contactReducer,
   },
+  middleware,
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export default store;

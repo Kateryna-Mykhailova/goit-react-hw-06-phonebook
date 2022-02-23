@@ -7,8 +7,8 @@ import store from './redux/store';
 // import { myAction } from './redux/actions'
 import { addNewContact } from './redux/actions';
 
-console.log(store);
-console.log(store.getState());
+// console.log(store);
+// console.log(store.getState());
 // store.dispatch(myAction(5))
 ReactDOM.render(
   <React.StrictMode>
